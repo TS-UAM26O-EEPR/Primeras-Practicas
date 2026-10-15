@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mini App</title>
+</head>
+<body>
+    <h1>Mini aplicación con Docker</h1>
+    <p id="resultado">Cargando...</p>
+
+    <script>
+        fetch("http://localhost:8000/")
+            .then(respuesta => respuesta.json())
+            .then(datos => {
+                document.getElementById("resultado").textContent = datos.mensaje;
+            })
+            .catch(() => {
+                document.getElementById("resultado").textContent =
+                    "No se pudo contactar a la API.";
+            });
+    </script>
+</body>
+</html>
